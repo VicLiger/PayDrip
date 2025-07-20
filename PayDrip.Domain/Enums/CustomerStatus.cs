@@ -2,6 +2,6 @@
 {
     Active = 1,
     Inactive = 2,
-    Suspended = 3,
+    Blocked = 3,
     Deleted = 4
 }

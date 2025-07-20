@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PayDrip.Domain.Models
+﻿namespace PayDrip.Domain.Models
 {
+    /// <summary>
+    /// Representa uma assinatura de um cliente a um plano.
+    /// Conecta Customer e Plan via seus IDs.
+    /// </summary>
     public class Subscription
     {
         public Guid Id { get; private set; }
@@ -18,6 +16,9 @@ namespace PayDrip.Domain.Models
 
         private PaymentMethod _paymentMethod;
 
+        /// <summary>
+        /// Cria uma nova assinatura vinculada a um cliente e plano.
+        /// </summary>
         public Subscription(Guid customerId, Guid planId, DateTime startDate, PaymentMethod paymentMethod)
         {
             Id = Guid.NewGuid();
@@ -28,6 +29,9 @@ namespace PayDrip.Domain.Models
             Status = SubscriptionStatus.Active;
         }
 
+        /// <summary>
+        /// Define o cliente da assinatura.
+        /// </summary>
         public void SetCustomerId(Guid customerId)
         {
             if (customerId == Guid.Empty)
@@ -35,6 +39,9 @@ namespace PayDrip.Domain.Models
             CustomerId = customerId;
         }
 
+        /// <summary>
+        /// Define o plano da assinatura.
+        /// </summary>
         public void SetPlanId(Guid planId)
         {
             if (planId == Guid.Empty)
@@ -42,6 +49,9 @@ namespace PayDrip.Domain.Models
             PlanId = planId;
         }
 
+        /// <summary>
+        /// Define a data de início da assinatura.
+        /// </summary>
         public void SetStartDate(DateTime startDate)
         {
             if (startDate == DateTime.MinValue)
@@ -49,6 +59,9 @@ namespace PayDrip.Domain.Models
             StartDate = startDate;
         }
 
+        /// <summary>
+        /// Define a data de término da assinatura.
+        /// </summary>
         public void SetEndDate(DateTime? endDate)
         {
             if (endDate.HasValue && endDate <= StartDate)
@@ -56,16 +69,34 @@ namespace PayDrip.Domain.Models
             EndDate = endDate;
         }
 
+        /// <summary>
+        /// Define o método de pagamento da assinatura.
+        /// </summary>
         public void SetPaymentMethod(PaymentMethod paymentMethod)
         {
-            _paymentMethod = paymentMethod ?? throw new ArgumentException("Método de pagamento é obrigatório.");
+            _paymentMethod = paymentMethod;
         }
 
+        /// <summary>
+        /// Retorna o método de pagamento da assinatura.
+        /// </summary>
         public PaymentMethod GetPaymentMethod() => _paymentMethod;
 
         // Controle de status
+
+        /// <summary>
+        /// Ativa a assinatura.
+        /// </summary>
         public void Activate() => Status = SubscriptionStatus.Active;
-        public void Cancel() => Status = SubscriptionStatus.Canceled;
+
+        /// <summary>
+        /// Cancela a assinatura.
+        /// </summary>
+        public void Cancel() => Status = SubscriptionStatus.Inactive;
+
+        /// <summary>
+        /// Suspende a assinatura.
+        /// </summary>
         public void Suspend() => Status = SubscriptionStatus.Suspended;
     }
 }
