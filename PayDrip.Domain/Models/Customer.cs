@@ -37,6 +37,7 @@
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Nome não pode ser vazio.");
+
             Name = name.Trim();
         }
 
@@ -47,6 +48,7 @@
         {
             if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
                 throw new ArgumentException("Email inválido.");
+
             Email = email.Trim().ToLower();
         }
 
@@ -57,6 +59,7 @@
         {
             if (string.IsNullOrWhiteSpace(documentNumber))
                 throw new ArgumentException("Documento é obrigatório.");
+
             DocumentNumber = documentNumber.Trim();
         }
 
@@ -67,6 +70,7 @@
         {
             if (string.IsNullOrWhiteSpace(phone))
                 throw new ArgumentException("Telefone é obrigatório.");
+
             Phone = phone.Trim();
         }
 
@@ -89,6 +93,7 @@
         {
             if (paymentInfo == null)
                 throw new ArgumentException("Informações de pagamento inválidas.");
+
             _paymentInfo = paymentInfo;
         }
 

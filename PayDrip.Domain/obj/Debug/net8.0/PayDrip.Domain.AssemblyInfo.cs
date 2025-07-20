@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PayDrip.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94d9aeb4d9f3fa8821ebd60b78a8d15000ef92f3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d8c91790419eeb76376feaab7ac8075e4d757aa")]
 [assembly: System.Reflection.AssemblyProductAttribute("PayDrip.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PayDrip.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
